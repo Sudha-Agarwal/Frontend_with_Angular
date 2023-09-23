@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Dynamic Table from JSON Server</h1>
+
+    <div id="table-container"></div>
+
+    <table>
+        <thead>
+            <th>ID          
+            </th>
+            <th>Name</th>
+            <th>Position</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>ABC</td>
+                <td>QA</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        async function fetchEmployees(){
+    try{
+        const response = await fetch('http://localhost:3000/employees');
+        const employees = await response.json();
+        return employees;
+    }
+    catch(error){
+        console.log("Error fetching data:" + error);
+    }
+}
+
+async function generateTable(){
+    const jsonData = await fetchEmployees();
+    const tableContainer = document.getElementById('table-container');
+
+    const table = document.createElement("table");
+    table.id = "data-table";
+
+    //create table header
+    const thead = document.createElement("thead");
+    const headerRow = document.createElement("tr");
+    const headers = ["ID", "Name", "Position"];
+
+    headers.forEach(headerText => {
+        const th = document.createElement("th");
+        th.textContent = headerText;
+        headerRow.appendChild(th);
+    });
+
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    //create table body
+    const tbody = document.createElement("tbody");
+    jsonData.forEach(item => {
+        const row = document.createElement("tr");
+        const cell1 = document.createElement("td");
+        const cell2 = document.createElement("td");
+        const cell3 = document.createElement("td");
+
+        cell1.textContent = item.id;
+        cell2.textContent = item.name;
+        cell3.textContent = item.position;
+
+        row.appendChild(cell1);
+        row.appendChild(cell2);
+        row.appendChild(cell3);
+
+        tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+    tableContainer.appendChild(table);
+}
+
+generateTable();
+    </script>
+</body>
+</html>
