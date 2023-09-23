@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript's Fetch API</h1>
+    <h2>POST Method</h2>
+
+    <script>
+        function postData(){
+            const employeeData = {
+                id:6,
+                name:"New Employee Name",
+                position:"Fresher"
+            }
+
+            const headers = {
+                "Content-Type":"application/json"
+            }
+
+            const employeeToDelete = 2;
+
+            //POST request using the fetch api
+            fetch(`http://localhost:3000/employees/${employeeToDelete}`,{
+                method:"DELETE"  //or POST  
+                
+                /*method: "POST",
+                headers: headers,
+                body: JSON.stringify(employeeData),*/
+
+                /*method: "PUT",
+                headers: headers,
+                body: JSON.stringify(employeeData),*/
+               
+            }   
+            ).then((response) => {
+                return response.json();
+            })
+            .then(data => {
+                //alert("Employee added successfully " + data)
+            })
+            //.catch(error => //alert("Error"));
+
+        }
+
+        postData();
+    </script>
+</body>
+</html>
