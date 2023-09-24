@@ -1,0 +1,17 @@
+<a [routerLink] = "'/home'">Home&nbsp;&nbsp;</a>
+<a [routerLink] = "'/products'">Products</a>
+
+<!--String Interpolation-->
+<p>{{title}}</p>
+
+<!-- Property binding-->
+<img [src]="imgPath"/>
+<button [disabled] = "isValid()" (click) = "onClick()">Click me</button>
+
+<div *ngIf="isAdmin; else userBlock"></div>
+
+<ng-template #adminBlock><p>Admin</p></ng-template>
+<ng-template #userBlock><p>User</p></ng-template>
+
+<router-outlet></router-outlet>
+

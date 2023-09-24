@@ -1,0 +1,41 @@
+
+<h2>Product List</h2>
+
+<div *ngIf="products.length >0; then showTableBlock ;else nodataBlock">Content to show when the condition is true</div>
+<ng-template #showTableBlock>
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let product of products" >
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.Description }}</td>
+            <td>{{ product.type }}</td>
+        </tr>
+    </tbody>
+</table>
+
+</ng-template>
+
+<ng-template #nodataBlock>No Data</ng-template>
+
+<div [ngSwitch]="someValue">
+    <div *ngSwitchCase="'table'">Content for value 1</div>
+    <div *ngSwitchCase="'paragraph'"><p></p>>Content for value 2</div>
+    <div *ngSwitchCase="'value3'">Content for value 3</div>
+    <div *ngSwitchDefault>Default content</div>
+  </div>
+
+  <div [ngSwitch] = "switchValue">
+    <ng-template [ngSwitchCase] = "'tableTemplate'">
+        <table>
+
+        </table>
+    </ng-template>
+    
+  </div>
