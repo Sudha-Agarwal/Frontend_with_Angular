@@ -9,10 +9,10 @@ app.use(cors());
 
 // Sample data for products
 const products = [
-  { id: 1, name: 'Product 1', category: 'mobile' },
-  { id: 2, name: 'Product 2', category: 'mobile' },
-  { id: 3, name: 'Product 3', category: 'laptop' },
-  { id: 4, name: 'Product 4', category: 'furniture' },
+  { id: 1, name: 'Product 1', category: 'Mobiles' },
+  { id: 2, name: 'Product 2', category: 'Mobiles' },
+  { id: 3, name: 'Product 3', category: 'Laptops' },
+  { id: 4, name: 'Product 4', category: 'Furnitures' },
 ];
 
 // Route to get products by category
