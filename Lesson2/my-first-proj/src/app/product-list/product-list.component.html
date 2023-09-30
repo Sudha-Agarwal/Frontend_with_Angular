@@ -1,4 +1,14 @@
+<div>
+    <ul>
+        <li *ngFor="let category of categories">
+            <a [routerLink] = "[category]">{{category}}</a>
+        </li>
+    </ul>         
+</div>
 
+<router-outlet></router-outlet>
+
+<!--
 <h2>Product List</h2>
 
 <div *ngIf="products.length >0; then showTableBlock ;else nodataBlock">Content to show when the condition is true</div>
@@ -39,3 +49,5 @@
     </ng-template>
     
   </div>
+
+-->

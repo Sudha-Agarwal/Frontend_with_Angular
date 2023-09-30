@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent {
-  products:any = [
+export class ProductListComponent  {
+  /*products:any = [
     {id:1, name:'Product1', Description:'Description1',type:'Mobile'},
     {id:2, name:'Product2', Description:'Description2',type:'Mobile'},
     {id:3, name:'Product3', Description:'Description3',type:'Laptop'},
@@ -16,5 +16,9 @@ export class ProductListComponent {
   condition:boolean = false;
   someValue = 'value1';
   switchValue:any;
+*/
+
+categories:string[] = ['Mobiles','Laptops', 'Furnitures'];
+
 
 }
