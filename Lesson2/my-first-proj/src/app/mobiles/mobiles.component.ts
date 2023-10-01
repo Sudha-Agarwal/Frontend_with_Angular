@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-mobiles',
@@ -7,13 +8,19 @@ import { DataService } from '../data.service';
   styleUrls: ['./mobiles.component.css']
 })
 export class MobilesComponent implements OnInit{
+  category:string='';
+  products!:any[];
+
+  constructor(private obj:DataService, private route:ActivatedRoute){}
 
   ngOnInit(): void {
-    this.obj.getProducts().subscribe({
-      next:data=>console.log(data),
+    this.route.queryParams.subscribe((params) =>{
+      this.category = params['category'];
+    })
+    this.obj.getProducts(this.category).subscribe({
+      next:data=>this.products = data,
       error: err=>console.log(err),
-      complete:()=>console.log('complete')
-      
+      complete:()=>console.log('complete')      
     })
     
   }
@@ -22,7 +29,7 @@ export class MobilesComponent implements OnInit{
     
   }
 data:string | null ='';
-  constructor(private obj:DataService){}
+ 
 
   addItem(){
     this.data = this.obj.getData();

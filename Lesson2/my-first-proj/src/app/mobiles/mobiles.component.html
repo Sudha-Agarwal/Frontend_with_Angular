@@ -1,5 +1,22 @@
-<p>mobiles works!</p>
+<h2>Product List</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+    </thead>
 
-<button (click)="addItem()">Click</button>
-
-{{data}}
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.description}}</td>
+            <td>
+                <a [routerLink] = "['../mobile-detail',product.id]">View</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
