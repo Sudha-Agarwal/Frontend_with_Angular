@@ -33,11 +33,25 @@ const manageAccount = function(initialBal){
     let balance = initialBal;
 
     return {
-        getBalance: function(){return balance;}
-    }
-
-
+        getBalance: () =>balance,
+        deposit: function(amount){balance += amount},
+        withdraw: function(amount){balance -= amount}
+    };
 }
+
+
+
+
+//console.log(balance);
+const obj1 = manageAccount(100);
+console.log(obj1.getBalance());
+obj1.deposit(10);
+console.log(obj1.getBalance());
+
+
+
+
+
 
 
 
