@@ -1,0 +1,19 @@
+<h2>{{name | uppercase}}</h2>
+
+<p>Amount: {{amount | currency:'USD':true:'1.2-2'}}</p>
+
+<p>Date: {{date | date:'shortDate'}}</p>
+
+<p>{{amount | percent: '2.2-2'}}</p>
+
+<p> {{ name | titlecase}}</p>
+
+<p>{{dateString | date | uppercase }}</p>
+
+<p>Async Pipe</p>
+
+<ul>
+    <li *ngFor = "let product of products$ | async">
+        {{product.description}}
+    </li>
+</ul>

@@ -22,7 +22,6 @@ export class LoginFormComponent {
           this.userService.setToken(response.token);
         }
       }
-
     });   
   }
 

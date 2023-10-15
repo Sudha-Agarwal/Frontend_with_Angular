@@ -7,6 +7,8 @@ import { LaptopsComponent } from './laptops/laptops.component';
 import { MobileDetailComponent } from './mobile-detail/mobile-detail.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SignupComponent } from './signup/signup.component';
+import { ParentComponent } from './parent/parent.component';
+import { PipesComponent } from './pipes/pipes.component';
 
 
 const routes: Routes = [
@@ -19,7 +21,9 @@ const routes: Routes = [
 },
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginFormComponent},
-  {path:'signup', component: SignupComponent}
+  {path:'signup', component: SignupComponent},
+  {path: 'parent', component: ParentComponent},
+  {path: 'pipes', component:PipesComponent}
 ];
 
 @NgModule({

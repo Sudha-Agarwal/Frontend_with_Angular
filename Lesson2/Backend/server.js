@@ -37,7 +37,7 @@ class User{
 
 const users = [];
 
-app.use('/createUser', (req,res) =>{
+app.post('/createUser', (req,res) =>{
   const { firstName, lastName, email, password} = req.body;
 
   //create a new user with the provided data
@@ -48,7 +48,7 @@ app.use('/createUser', (req,res) =>{
 
 })
 
-app.use('/login', (req,res) => {
+app.post('/login', (req,res) => {
   const {email, password} = req.body;
   //find the user with the provided credentials
 
@@ -67,9 +67,23 @@ app.use('/login', (req,res) => {
   } 
 });
 
+//Middleware for authentication
+/*app.use((req, res, next) => {
+  const token = req.header('Authorization');  
+  if(!token) return res.status(410).json({message:'Access denied. No token provided'});
+  try{
+    const decoded = jwt.verify(token, secretkey);
+    req.user = decoded;
+    next();
+  }
+  catch(ex){
+    res.status(400).send({message:'Invalid Token'});
+  }  
+}) */
+
 
 // Route to get products by category
-app.get('/products', (req, res) => {
+app.get('/products',(req, res) => {
   console.log('get');
   const category = req.query.category;
   const filteredProducts = products.filter(product => product.category === category);

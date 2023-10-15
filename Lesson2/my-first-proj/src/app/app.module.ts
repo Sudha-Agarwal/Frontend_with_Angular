@@ -11,6 +11,9 @@ import { MobileDetailComponent } from './mobile-detail/mobile-detail.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
+import { PipesComponent } from './pipes/pipes.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { SignupComponent } from './signup/signup.component';
     LaptopsComponent,
     MobileDetailComponent,
     LoginFormComponent,
-    SignupComponent
+    SignupComponent,
+    ParentComponent,
+    ChildComponent,
+    PipesComponent
   ],
   imports: [
     BrowserModule,

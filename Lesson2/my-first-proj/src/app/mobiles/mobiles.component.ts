@@ -2,15 +2,17 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../models/product.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-mobiles',
   templateUrl: './mobiles.component.html',
   styleUrls: ['./mobiles.component.css']
 })
-export class MobilesComponent implements OnInit{
+export class MobilesComponent implements OnInit, OnDestroy{
   category:string='';
   products!:Product[];
+  subscription:Subscription;
 
   constructor(private obj:DataService, private route:ActivatedRoute){}
 
@@ -18,7 +20,8 @@ export class MobilesComponent implements OnInit{
     this.route.queryParams.subscribe((params) =>{
       this.category = params['category'];
     })
-    this.obj.getProducts(this.category).subscribe({
+    this.subscription = this.obj.getProducts(this.category)
+    .subscribe({
       next:data=>this.products = data,
       error: err=>console.log(err),
       complete:()=>console.log('complete')      
@@ -27,6 +30,7 @@ export class MobilesComponent implements OnInit{
   }
 
   ngOnDestroy(): void {
+    this.subscription.unsubscribe();
     
   }
 data:string | null ='';
