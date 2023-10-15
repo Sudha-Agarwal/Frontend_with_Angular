@@ -1,3 +1,30 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Brand</a>
+
+        <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navbarMain">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link active" [routerLink] = "'/products'">Products</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-md-auto d-flex flex-row">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink] = "'/login'">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink] = "'/signup'">SignUp</a>
+            </li>
+        </ul>
+
+    </div>
+    </div>
+</nav>
+
 <a [routerLink] = "'/home'">Home&nbsp;&nbsp;</a>
 <a [routerLink] = "'/products'">Products</a>
 
@@ -13,7 +40,11 @@
 <ng-template #adminBlock><p>Admin</p></ng-template>
 <ng-template #userBlock><p>User</p></ng-template>
 
+<button class="btn btn-primary">Bootstrap button</button>
 <router-outlet></router-outlet>
+
+<h1>Pipes</h1>
+
 
 
 

@@ -1,11 +1,14 @@
 const express = require('express');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = 3000; // You can change this to any port you prefer
 
 // Enable CORS for all routes (adjust the options as needed for your environment)
 app.use(cors());
+
+app.use(bodyParser.json());
 
 // Sample data for products
 const products = [
@@ -14,6 +17,13 @@ const products = [
   { id: 3, name: 'Product 3', category: 'Laptops' },
   { id: 4, name: 'Product 4', category: 'Furnitures' },
 ];
+
+app.use('/login', (req,res) => {
+  const {email, password} = req.body;
+  console.log(req.body);
+  
+});
+
 
 // Route to get products by category
 app.get('/products', (req, res) => {
@@ -31,6 +41,8 @@ app.get('/products', (req, res) => {
     res.status(200).json(filteredProducts);
   }
 });
+
+
 
 // Start the server
 app.listen(port, () => {

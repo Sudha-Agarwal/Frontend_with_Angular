@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { ActivatedRoute } from '@angular/router';
+import { Product } from '../models/product.model';
 
 @Component({
   selector: 'app-mobiles',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MobilesComponent implements OnInit{
   category:string='';
-  products!:any[];
+  products!:Product[];
 
   constructor(private obj:DataService, private route:ActivatedRoute){}
 
