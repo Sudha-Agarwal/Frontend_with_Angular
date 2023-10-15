@@ -1,9 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
+
 
 const app = express();
 const port = 3000; // You can change this to any port you prefer
+const secretkey = '1234';
 
 // Enable CORS for all routes (adjust the options as needed for your environment)
 app.use(cors());
@@ -18,10 +21,50 @@ const products = [
   { id: 4, name: 'Product 4', category: 'Furnitures' },
 ];
 
+class User{
+  firstName;
+  lastName;
+  email;
+  password;
+
+  constructor(firstName, lastName, email, password){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.password = password;
+  }
+}
+
+const users = [];
+
+app.use('/createUser', (req,res) =>{
+  const { firstName, lastName, email, password} = req.body;
+
+  //create a new user with the provided data
+  const newuser = new User(firstName,lastName, email, password);
+  users.push(newuser);
+  res.status(200).json({message: 'User Regitered successfully'});
+
+
+})
+
 app.use('/login', (req,res) => {
   const {email, password} = req.body;
-  console.log(req.body);
-  
+  //find the user with the provided credentials
+
+  const user = users.find((user) => user.email === email && user.password === password);
+
+  if(user){
+    const payload = {
+      email:user.email
+    };
+
+    const token = jwt.sign(payload,secretkey);
+    res.status(200).json({message: 'Login successful', token:token});
+  }
+  else{
+    res.status(401).json({message:'Invalid credentials'});
+  } 
 });
 
 

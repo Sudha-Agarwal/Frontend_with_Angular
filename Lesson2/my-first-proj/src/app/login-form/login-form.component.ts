@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
 import { DataService } from '../data.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login-form',
@@ -10,17 +11,19 @@ import { DataService } from '../data.service';
 export class LoginFormComponent {
   user:User = {email:'', password:''};
 
-  constructor(private ds: DataService){}
+  constructor(private userService: UserService){}
 
   onSubmit(){
     alert(this.user.email);
-    this.ds.checkLogin(this.user).subscribe({
+    this.userService.checkLogin(this.user).subscribe({
+      next:(response:any)=>{
+        if(response.token){
+          alert(response.message);
+          this.userService.setToken(response.token);
+        }
+      }
 
-    });
-
-
-
-    
+    });   
   }
 
  

@@ -12,7 +12,7 @@ export class DataService {
   private url = "http://localhost:3000";
 
   constructor(private http:HttpClient) { 
-    
+
   }
 
   getProducts(category:string): Observable<Product[]>{
@@ -24,10 +24,7 @@ export class DataService {
     return "data";
   }
 
-  checkLogin(user:User){
-    return this.http.post(`${this.url}/login`,user);
-    
-  }
+  
 
 }
 
