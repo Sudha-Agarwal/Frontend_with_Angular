@@ -11,7 +11,7 @@ export class DataService {
 
   constructor(private http:HttpClient) { }
 
-  getProducts(category:string):Observable<any[]>{
+  getProducts(category:string): Observable<any[]>{
     const params = new HttpParams().set("category",category);
     return this.http.get<any[]>(`${this.url}/products`,{'params':params});  
   }
@@ -20,3 +20,5 @@ export class DataService {
     return "data";
   }
 }
+
+
