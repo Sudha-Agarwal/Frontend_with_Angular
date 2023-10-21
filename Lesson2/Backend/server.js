@@ -99,6 +99,33 @@ app.get('/products',(req, res) => {
   }
 });
 
+app.post('/product', (req,res) => {
+  const newProduct = req.body;  
+  products.push(newProduct);
+  return res.status(201).json(newProduct);
+});
+
+app.put('/products', (req,res) => {
+  const productId = parseInt(req.body.id,10);
+
+  const productToUpdate = products.find((product) => product.id ===productId);
+
+  if(!productToUpdate){
+    return res.status(404).json({error:'Product Not Found'});
+  }
+  if(req.body.name){
+    productToUpdate.name = req.body.name;
+  }
+
+  if(req.body.description){
+    productToUpdate.description = req.body.description;
+  }
+  return res.json({message: 'Product updated successfully', product:productToUpdate});
+
+})
+
+
+
 
 
 // Start the server

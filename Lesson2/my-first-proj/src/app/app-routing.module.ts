@@ -9,9 +9,12 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { SignupComponent } from './signup/signup.component';
 import { ParentComponent } from './parent/parent.component';
 import { PipesComponent } from './pipes/pipes.component';
+import { BindingsComponent } from './bindings/bindings.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
+  {path:'', redirectTo:'/home', pathMatch:'full'},
   {path:'products', component:ProductListComponent,
   children:[
     {path:'Mobiles',component:MobilesComponent},
@@ -23,7 +26,9 @@ const routes: Routes = [
   {path: 'login', component: LoginFormComponent},
   {path:'signup', component: SignupComponent},
   {path: 'parent', component: ParentComponent},
-  {path: 'pipes', component:PipesComponent}
+  {path: 'pipes', component:PipesComponent},
+  {path: 'bindings',component:BindingsComponent},
+  {path:'**', component:PageNotFoundComponent}
 ];
 
 @NgModule({

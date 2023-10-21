@@ -13,8 +13,4 @@ export class ChildComponent {
     const messageToParent = "Message from child to parent";
     this.messageSent.emit(messageToParent);
   }
-
-  
-
-
 }

@@ -41,6 +41,18 @@ data:string | null ='';
     console.log(this.data);
   }
 
+  selectedproduct:Product;
+  showEditProduct:boolean = false;
+
+  showEdit(product:Product){
+    this.selectedproduct = Object.assign({}, product);
+    this.showEditProduct = true;
+  }
+
+  update(product:Product){
+    this.showEditProduct = false;
+    this.ngOnInit();
+  }
   
 
 }

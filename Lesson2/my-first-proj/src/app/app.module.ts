@@ -14,6 +14,9 @@ import { SignupComponent } from './signup/signup.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { PipesComponent } from './pipes/pipes.component';
+import { BindingsComponent } from './bindings/bindings.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { PipesComponent } from './pipes/pipes.component';
     SignupComponent,
     ParentComponent,
     ChildComponent,
-    PipesComponent
+    PipesComponent,
+    BindingsComponent,
+    PageNotFoundComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

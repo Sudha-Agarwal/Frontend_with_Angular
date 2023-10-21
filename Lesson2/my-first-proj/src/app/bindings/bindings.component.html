@@ -1,0 +1,50 @@
+<button [disabled]="buttonDisabled" (click)="clicked()">Click me</button>
+
+<img [src] = "">
+
+<!-- Class Bindings-->
+<div [className] = "'red'">Test</div>
+
+<div [className] = "'red size20'">Test</div>
+
+<div [class.active] = "isActive">Active</div>
+
+<div [class.active] = "isActive" [class.inactive] = "!isActive">Active</div>
+
+<div [className] = "cssStringVar">css Var String Class</div>
+
+<div [className] = "hasError() ? 'red' : 'size20'">Conditional Class</div>
+
+
+<!-- ngClass(Attribute Directive)-->
+
+<!--
+<div [ngClass] = "{'class1': condition, 'class2': anotherCondition}">ngClass Addedd conditionally</div>
+
+-->
+
+<!--Ex:-->
+
+<div [ngClass] = "{'highlight' : isHighlighted}">Conditional Class</div>
+
+<!--ngStyle-->
+<div [ngStyle] = "{'color': 'red', 'font-size':'25px'}">Style Binding</div>
+
+<div [ngStyle] = "getStyle()">Style applied by getStyle() method</div>
+
+<button (click) = "toggleHighlight()">Toogle Highlight</button>
+
+<div class="card" *ngFor="let product of products">
+    <div class="card-header">{{product.name}}</div>
+    <div class="card-body">
+        <p>{{product.description}}</p>
+        <p>Price: {{product.price}}</p>
+    </div>
+
+    <div class="card-footer">
+        <div [ngClass] = "{'in-stock': isProductInStock(product), 'out-of-stock': !isProductInStock(product)}">
+            {{isProductInStock(product) ? 'In-stock': 'Out of stock'}}
+        </div>
+    
+    </div>
+</div>

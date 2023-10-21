@@ -29,6 +29,9 @@ export class DataService {
     return "data";
   }
 
+  updateProduct(product:Product):Observable<Product>{
+    return this.http.put<Product>(this.url + '/products', product);
+  }
   
 
 }

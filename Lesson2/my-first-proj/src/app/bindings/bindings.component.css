@@ -1,0 +1,37 @@
+.red{
+    color:red;
+}
+
+.size20{
+    font-size: 20px;
+}
+
+.active{
+    background-color: blue;
+    padding: 5px;
+}
+
+.inactive{
+    background-color: grey;
+    color:white;
+    padding: 5px;
+}
+
+.highlight{
+    background-color: yellow;
+    font-weight: bold;
+}
+
+.in-stock{
+    background-color: green;
+    color: white;
+    padding: 5px;    
+
+}
+
+.out-of-stock{
+    background-color: grey;
+    color: white;
+    padding: 5px;    
+
+}
