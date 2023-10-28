@@ -26,14 +26,13 @@ describe('DataService', () => {
       const newproduct = {id:7,name:'product7', description:'product7', category:'Mobiles'};
 
       service.addProduct(newproduct).subscribe(response => {
-        expect(response).toEqual(newproduct);
-        
-        const req = httpMock.expectOne('http://localhost:3000/products');
-        expect(req.request.method).toEqual('POST');
+        expect(response).toEqual(newproduct);        
+      });
+      const req = httpMock.expectOne('http://localhost:3000/products');
+        expect(req.request.method).toBe('POST');
         expect(req.request.body).toEqual(newproduct);
         req.flush(newproduct,{status:201, statusText:'created'});
         httpMock.verify();
-      })
 
   })));
 });

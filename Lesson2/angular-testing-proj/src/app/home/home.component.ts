@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from '../user.model';
 
 @Component({
   selector: 'app-home',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   title = 'Home Component';
+  user:User = new User(1,'Sudha','sudha@gmail.com');
+
 }

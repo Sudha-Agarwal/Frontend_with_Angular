@@ -1,0 +1,17 @@
+{
+    "name":"MY PWA",
+    "short_name":"MY PWA",
+    "start_url": "index.html",
+    "display": "fullscreen",
+    "background_color":"#fff",
+    "orientation":"portrait-primary",
+    "icons":[{
+        "src":"/images/icons/icon-72x72.png",
+        "type":"images/png",
+        "size":"72x72",
+        "purpose":"maskable"
+
+    }
+
+    ]
+}
