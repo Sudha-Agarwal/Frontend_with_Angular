@@ -19,12 +19,6 @@ app.get('/flights', (req, res) => {
     console.log("flights");
     let flightDetails = new FlightDetails();
 
-    const flights = [
-        { source: 'New York', destination: 'London' },
-        { source: 'London', destination: 'Paris' }
-       
-    ];
-
     console.log(flightDetails.routePrices);
     res.json(flightDetails.routePrices);
 });

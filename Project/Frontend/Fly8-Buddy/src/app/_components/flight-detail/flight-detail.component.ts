@@ -20,7 +20,7 @@ export class FlightDetailComponent {
     // Generate input boxes for each passenger
     let numberOfPassengers =  this.flightDetails.numberOfAdults + this.flightDetails.numberOfChildren;
     for (let i = 0; i < numberOfPassengers; i++) {
-        this.passengers.push({ name: '' }); // Add more properties as needed for each passenger
+        this.passengers.push({ name: ''}); // Add more properties as needed for each passenger
     }
 
     this.showPassengerDetailsForm = true; // Display the passenger details form

@@ -1,0 +1,25 @@
+[
+  {
+    "customerEmail": "sudha@gmail.com",
+    "totalPrice": 600,
+    "flightDetails": {
+      "source": "New York",
+      "destination": "London",
+      "date": "2023-10-21"
+    },
+    "passengers": [
+      {
+        "name": "fgsdh",
+        "age": 10
+      },
+      {
+        "name": "dsth",
+        "age": 20
+      },
+      {
+        "name": "dysfy",
+        "age": 30
+      }
+    ]
+  }
+]

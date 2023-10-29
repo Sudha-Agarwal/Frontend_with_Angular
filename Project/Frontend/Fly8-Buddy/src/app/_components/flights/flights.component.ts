@@ -29,11 +29,6 @@ export class FlightsComponent implements OnInit{
       ]
     }]
   };
-
-  
-
-
-
   ngOnInit(): void {
     this.flightService.getFlightDetails().subscribe({
       next:(data:any)=>{
@@ -43,9 +38,6 @@ export class FlightsComponent implements OnInit{
     });
     
   }
-  
-  
-  
 
   incrementAdults() {
     if (!this.flight.numberOfAdults) {
@@ -87,7 +79,9 @@ export class FlightsComponent implements OnInit{
         this.flight.price = response.totalPrice;
 
       },
-      error:err=>alert(err.error),
+      error:err=>{alert(err.error);
+      this.flightAvailable = false;
+      },
       complete:()=>console.log('complete')
     })
 
